@@ -26,11 +26,11 @@ Then `.venv/bin/firewall-review` accepts the same flags as the script. Tests use
 
 Installation guidance was checked on October 6, 2026 against [OpenAI's official Build skills documentation](https://developers.openai.com/codex/skills). Codex discovers repository skills under `.agents/skills` and user skills under `~/.agents/skills`. Skill folders contain `SKILL.md` and supporting resources; changes are detected automatically, with a restart if discovery does not refresh.
 
-This workspace keeps the requested `SKILL.md` at its root. To install a self-contained copy for a repository, run these commands **from this project root**, choosing an empty destination:
+This workspace keeps the requested `SKILL.md` at its root. The root [AGENTS.md](AGENTS.md) directs Codex to that workflow when working in this repository; ask Codex to read SKILL.md for a review without installing a separate copy. To install a self-contained copy for a repository, run these commands **from this project root**, choosing an empty destination:
 
 ```bash
 mkdir -p .agents/skills/firewall-change-reviewer
-cp SKILL.md README.md LICENSE .agents/skills/firewall-change-reviewer/
+cp SKILL.md AGENTS.md README.md LICENSE .agents/skills/firewall-change-reviewer/
 cp -R agents scripts references examples .agents/skills/firewall-change-reviewer/
 ```
 
