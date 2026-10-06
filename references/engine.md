@@ -1,0 +1,17 @@
+# Evaluation, resource limits, and severity
+
+The engine validates and canonicalizes inputs, then builds source, destination, and destination-port intervals from every enabled rule and policy boundary. It partitions the full IPv4 × IPv4 × port domain for each of TCP and UDP. All selectors and first-match outcomes are constant within a cell, so one cell endpoint is a mathematical representative of its entire interval, rather than an assumed representative of an unpartitioned subnet. Inclusive endpoint arithmetic uses Python integers and `ipaddress`. Disabled rules affect structural comparison but not partitioning or access.
+
+For each cell, the engine records ordered matches for current/proposed configurations, evaluates every matching policy entry, and counts exact connection tuples. It groups violation and access-delta evidence by category, policy IDs, and before/after responsible rules. A policy can have introduced, existing, and resolved violations in separate parts of its range simultaneously. Full shadowing means a rule never wins anywhere in its selector, including coverage by the union of several earlier rules. Partial shadowing and intersections are explicit order observations. Unchanged shadows are reported for both snapshots. Disabled rules are not classified as shadowed.
+
+Reordering compares the relative positions of common IDs, so adding/removing a rule does not alone label following rules as reordered. Broadening means a proposed selector includes any value outside that rule's old selector; it may simultaneously remove other values. Source, destination, and port broadening is reported regardless of action or enabled state. It is an observation, not a violation. Protocol and action changes appear under modified fields and effective deltas.
+
+Default limits: 200,000 exact cells, 5,000,000 selector/overlap checks, 200 rules per configuration, 200 policy requirements, 256 port intervals per selector, 1000 inventory entries, 2 MB per CLI input. The CLI exposes `--max-cells` and `--max-checks` for explicitly larger reviews; those flags do not change semantics. The engine also caps stored evidence at 100,000 region records and 20,000 grouped findings. Resource exhaustion yields `status: incomplete`, exit 3, and `Incomplete review`; any findings are explicitly partial and policy totals are withheld. Input validation yields `status: invalid`, exit 2, and the same non-clean verdict. No timeout or resource failure is converted into success. Memory/OS termination may prevent reports; absence of a complete report is never success.
+
+Severity is tied to evidence, not guessed business impact:
+
+- **High:** a supplied forbidden connection is permitted, either introduced or existing. The rationale is explicit policy breach, not proof of exploitability.
+- **Medium:** a supplied required connection is denied, either introduced or existing. The engineer must establish business impact separately.
+- **Info:** resolved violations, access deltas without a violation claim, broadening, shadows, and overlap observations.
+
+Inventory criticality is context only; unverified labels cannot silently escalate severity. No critical severity is inferred. Suggested corrections identify selectors/order and required behavior, but do not promise that a generated fix will preserve other policy. Verification requires rerunning the complete review using the same confirmed policy and inspecting changed access outside that coverage.

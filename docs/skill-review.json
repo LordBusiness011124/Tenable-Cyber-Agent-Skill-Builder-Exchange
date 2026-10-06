@@ -1,0 +1,132 @@
+{
+  "verdict_schema_version": "2.4",
+  "rubric_version": "2.4",
+  "skill": "/Users/noah/IdeaProjects/Tenable-Cyber-Agent-Skill-Builder-Exchange",
+  "archetype": "tool-wrapper",
+  "invocation_model": "dispatched",
+  "review_mode": "single",
+  "review_depth": "full",
+  "independence": "fresh-context",
+  "probe_run": true,
+  "probe_skip_reason": null,
+  "reviewed_commit": null,
+  "base_verdict_commit": null,
+  "reviewer_model": null,
+  "reviewer_models": null,
+  "weighted_score": 5.0,
+  "grade": "A",
+  "dimensions": {
+    "spec_compliance": {
+      "score": 5.0,
+      "checks": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "adjustment": 0,
+      "adjustment_note": null,
+      "cap": null
+    },
+    "trigger_precision": {
+      "score": 5.0,
+      "checks": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "N-A"
+      ],
+      "adjustment": 0,
+      "adjustment_note": null,
+      "cap": 5
+    },
+    "workflow_quality": {
+      "score": 5.0,
+      "checks": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "adjustment": 0,
+      "adjustment_note": null,
+      "cap": null
+    },
+    "token_efficiency": {
+      "score": 5.0,
+      "checks": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "adjustment": 0,
+      "adjustment_note": null,
+      "cap": null
+    },
+    "safety": {
+      "score": 5.0,
+      "checks": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "adjustment": 0,
+      "adjustment_note": null,
+      "cap": null
+    },
+    "robustness_evaluability": {
+      "score": 5.0,
+      "checks": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "adjustment": 0,
+      "adjustment_note": null,
+      "cap": null
+    },
+    "portability": {
+      "score": 5.0,
+      "checks": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "adjustment": 0,
+      "adjustment_note": null,
+      "cap": null
+    }
+  },
+  "metrics": {
+    "description_chars": 422,
+    "skill_md_body_lines": 35,
+    "skill_md_body_words": 586,
+    "skill_md_tokens_est": 779,
+    "hot_path_tokens_est": 1596,
+    "file_count": 26
+  },
+  "blockers": [],
+  "findings": [],
+  "maintenance_notes": [
+    "Root SKILL.md layout intentionally requested by user; README documents installation into matching firewall-change-reviewer folder. Name-directory check judged against authorized install layout.",
+    "Local skillcheck unavailable; manual deterministic checks substituted. No third-party linter downloaded."
+  ],
+  "p1_count": 0,
+  "p2_count": 0,
+  "p3_count": 0,
+  "meets_bar": true
+}

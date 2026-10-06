@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "default_action": "deny",
+  "rules": [
+    {
+      "id": "admin-ssh",
+      "enabled": true,
+      "action": "allow",
+      "source": "10.10.10.0/24",
+      "destination": "10.10.40.10",
+      "protocol": "tcp",
+      "ports": [
+        22
+      ]
+    },
+    {
+      "id": "employees-app",
+      "enabled": true,
+      "action": "allow",
+      "source": "10.10.20.0/24",
+      "destination": "10.10.40.10",
+      "protocol": "tcp",
+      "ports": [
+        443
+      ]
+    },
+    {
+      "id": "guest-db-deny",
+      "enabled": true,
+      "action": "deny",
+      "source": "10.10.30.0/24",
+      "destination": "10.10.50.10",
+      "protocol": "tcp",
+      "ports": "any"
+    }
+  ]
+}

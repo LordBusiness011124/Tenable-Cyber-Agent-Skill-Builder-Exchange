@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "default_action": "deny",
+  "rules": [
+    {
+      "id": "guest-db-open",
+      "enabled": true,
+      "action": "allow",
+      "source": "10.10.30.0/25",
+      "destination": "10.10.50.10",
+      "protocol": "tcp",
+      "ports": [
+        5432
+      ]
+    },
+    {
+      "id": "admin-ssh",
+      "enabled": true,
+      "action": "allow",
+      "source": "10.10.10.0/24",
+      "destination": "10.10.40.10",
+      "protocol": "tcp",
+      "ports": [
+        22
+      ]
+    },
+    {
+      "id": "employees-app",
+      "enabled": true,
+      "action": "allow",
+      "source": "10.10.20.0/24",
+      "destination": "10.10.40.10",
+      "protocol": "tcp",
+      "ports": [
+        443
+      ]
+    },
+    {
+      "id": "app-database",
+      "enabled": true,
+      "action": "allow",
+      "source": "10.10.40.10",
+      "destination": "10.10.50.10",
+      "protocol": "tcp",
+      "ports": [
+        5432
+      ]
+    },
+    {
+      "id": "guest-db-deny",
+      "enabled": true,
+      "action": "deny",
+      "source": "10.10.30.0/24",
+      "destination": "10.10.50.10",
+      "protocol": "tcp",
+      "ports": "any"
+    }
+  ]
+}

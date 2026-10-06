@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "requirements": [
+    {
+      "id": "P-admin",
+      "description": "Admins need SSH to the application server",
+      "source": "10.10.10.0/24",
+      "destination": "10.10.40.10",
+      "protocol": "tcp",
+      "ports": [
+        22
+      ],
+      "status": "required"
+    },
+    {
+      "id": "P-employees",
+      "description": "Employees need HTTPS to the application",
+      "source": "10.10.20.0/24",
+      "destination": "10.10.40.10",
+      "protocol": "tcp",
+      "ports": [
+        443
+      ],
+      "status": "required"
+    },
+    {
+      "id": "P-database",
+      "description": "Application needs PostgreSQL",
+      "source": "10.10.40.10",
+      "destination": "10.10.50.10",
+      "protocol": "tcp",
+      "ports": [
+        5432
+      ],
+      "status": "required"
+    },
+    {
+      "id": "P-guests",
+      "description": "Guests must not access PostgreSQL",
+      "source": "10.10.30.0/24",
+      "destination": "10.10.50.10",
+      "protocol": "tcp",
+      "ports": [
+        5432
+      ],
+      "status": "forbidden"
+    }
+  ]
+}

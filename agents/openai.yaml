@@ -1,0 +1,4 @@
+interface:
+  display_name: "Firewall Change Reviewer"
+  short_description: "Review firewall changes against explicit access policy"
+  default_prompt: "Use $firewall-change-reviewer to review my current and proposed firewall JSON against confirmed access policy and explain evidence-backed findings."

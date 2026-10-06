@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "address": "10.10.10.0/24",
+      "name": "Admin subnet",
+      "role": "administrators",
+      "owner": "IT",
+      "criticality": "high"
+    },
+    {
+      "address": "10.10.20.0/24",
+      "name": "Employee subnet",
+      "role": "employees",
+      "owner": "IT",
+      "criticality": "medium"
+    },
+    {
+      "address": "10.10.30.0/24",
+      "name": "Guest subnet",
+      "role": "guests",
+      "owner": "Facilities",
+      "criticality": "low"
+    },
+    {
+      "address": "10.10.40.10",
+      "name": "Application server",
+      "role": "application",
+      "owner": "App team",
+      "criticality": "high"
+    },
+    {
+      "address": "10.10.50.10",
+      "name": "Database server",
+      "role": "database",
+      "owner": "Data team",
+      "criticality": "critical"
+    }
+  ]
+}
